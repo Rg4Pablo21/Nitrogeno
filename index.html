@@ -1,67 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nitrógeno Quest — Ciclo del Nitrógeno</title>
-  <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nito y el Ciclo del Nitrógeno</title>
+  <link rel="stylesheet" href="index.css"/>
 </head>
 <body>
-  <header class="topbar">
-    <h1>Nitrógeno Quest</h1>
-    <div class="hud">
-      <div><strong>Etapa:</strong> <span id="hud-step">—</span></div>
-      <div><strong>Puntos:</strong> <span id="hud-score">0</span></div>
-      <div><strong>Vidas:</strong> <span id="hud-lives">3</span></div>
-      <div><strong>Tiempo:</strong> <span id="hud-time">60</span>s</div>
-    </div>
-    <div class="controls">
-      <button id="btn-start" class="btn primary">Iniciar</button>
-      <button id="btn-pause" class="btn">Pausar</button>
-      <button id="btn-reset" class="btn">Reiniciar</button>
-    </div>
-  </header>
+  <main id="app">
+    <header class="hud">
+      <div class="hud-item">
+        <span>⭐ Puntos:</span>
+        <strong id="score">0</strong>
+      </div>
+      <div class="hud-item">
+        <span>❤️ Vidas:</span>
+        <strong id="lives">3</strong>
+      </div>
+      <div class="hud-item">
+        <span>🎯 Nivel:</span>
+        <strong id="level">1 / 5</strong>
+      </div>
+      <div class="hud-item">
+        <button id="btn-help" class="btn ghost">📘 Enciclopedia</button>
+      </div>
+    </header>
 
-  <main>
-    <div class="legend">
-      <span class="badge soil">Suelo</span>
-      <span class="badge plant">🌱 Planta</span>
-      <span class="badge bacteria">🦠 Bacterias</span>
-      <span class="badge cloud">☁️ Atmósfera</span>
-    </div>
+    <section class="scene">
+      <div class="nito" id="nito" aria-label="Nito">🟡</div>
 
-    <canvas id="game" width="960" height="540" aria-label="Área de juego"></canvas>
+      <div class="panel">
+        <h1 id="title">¡Ayuda a Nito!</h1>
+        <p id="story">Nito es un átomo de nitrógeno (N). Llévalo por el ciclo eligiendo el proceso correcto.</p>
 
-    <section class="help">
-      <h2>Cómo jugar</h2>
-      <ul>
-        <li>Mueve la molécula de nitrógeno con <kbd>WASD</kbd> o flechas.</li>
-        <li>Llega a las estaciones en el <b>orden correcto</b> del ciclo y presiona <kbd>ESPACIO</kbd> para <b>reaccionar</b>.</li>
-        <li>Orden de etapas: <b>Fijación → Nitrificación → Asimilación → Amonificación → Desnitrificación</b>.</li>
-        <li>Fallas o desorden restan <b>1 vida</b>. Completa todas para ganar.</li>
-        <li>Entre etapas pueden aparecer <b>preguntas rápidas</b>. ¡Responde bien para sumar puntos!</li>
-      </ul>
+        <div id="question-box" class="question-box">
+          <div id="badge" class="badge">Etapa 1</div>
+          <h2 id="question">¿Qué proceso permite que el N₂ del aire entre al suelo como NH₃/NH₄⁺?</h2>
+          <div id="options" class="options"></div>
+        </div>
+
+        <div class="controls">
+          <button id="btn-next" class="btn primary" disabled>Siguiente ▶</button>
+          <button id="btn-restart" class="btn">Reiniciar 🔄</button>
+        </div>
+      </div>
     </section>
+
+    <footer class="footer">
+      <small>Hecho para peques ✨ — Aprende jugando el ciclo del nitrógeno</small>
+    </footer>
   </main>
 
-  <!-- Modal de mensajes -->
-  <dialog id="modal">
-    <form method="dialog" class="modal-card">
-      <h3 id="modal-title">Título</h3>
-      <p id="modal-text">Contenido</p>
-      <div id="modal-quiz" class="quiz hidden"></div>
-      <menu class="modal-actions">
-        <button id="modal-close" class="btn primary">Continuar</button>
-      </menu>
-    </form>
+  <!-- Modal Enciclopedia -->
+  <dialog id="help-modal">
+    <h3>Enciclopedia del ciclo (para niños)</h3>
+    <ul class="help-list">
+      <li><strong>Fijación:</strong> Convierte el nitrógeno del aire (N₂) en amoníaco (NH₃) o amonio (NH₄⁺).</li>
+      <li><strong>Nitrificación:</strong> Bacterias cambian NH₄⁺ → NO₂⁻ → NO₃⁻.</li>
+      <li><strong>Asimilación:</strong> Las plantas toman NO₃⁻ o NH₄⁺ para crecer.</li>
+      <li><strong>Amonificación:</strong> Restos de seres vivos → NH₄⁺.</li>
+      <li><strong>Desnitrificación:</strong> Bacterias devuelven el nitrógeno a la atmósfera como N₂.</li>
+      <li><strong>Eutrofización:</strong> Demasiado nitrato en el agua hace que falte oxígeno a los peces.</li>
+    </ul>
+    <button id="help-close" class="btn primary">Cerrar</button>
   </dialog>
 
-  <footer class="footer">
-    Hecho para aprender el ciclo del nitrógeno — Usa <kbd>R</kbd> para reiniciar, <kbd>P</kbd> para pausar.
-  </footer>
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-
-  <script src="index.js" type="module"></script>
-
+  <script src="index.js"></script>
 </body>
 </html>
