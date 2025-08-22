@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nitrógeno Quest — Ciclo del Nitrógeno</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Nitrógeno Quest</h1>
+    <div class="hud">
+      <div><strong>Etapa:</strong> <span id="hud-step">—</span></div>
+      <div><strong>Puntos:</strong> <span id="hud-score">0</span></div>
+      <div><strong>Vidas:</strong> <span id="hud-lives">3</span></div>
+      <div><strong>Tiempo:</strong> <span id="hud-time">60</span>s</div>
+    </div>
+    <div class="controls">
+      <button id="btn-start" class="btn primary">Iniciar</button>
+      <button id="btn-pause" class="btn">Pausar</button>
+      <button id="btn-reset" class="btn">Reiniciar</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="legend">
+      <span class="badge soil">Suelo</span>
+      <span class="badge plant">🌱 Planta</span>
+      <span class="badge bacteria">🦠 Bacterias</span>
+      <span class="badge cloud">☁️ Atmósfera</span>
+    </div>
+
+    <canvas id="game" width="960" height="540" aria-label="Área de juego"></canvas>
+
+    <section class="help">
+      <h2>Cómo jugar</h2>
+      <ul>
+        <li>Mueve la molécula de nitrógeno con <kbd>WASD</kbd> o flechas.</li>
+        <li>Llega a las estaciones en el <b>orden correcto</b> del ciclo y presiona <kbd>ESPACIO</kbd> para <b>reaccionar</b>.</li>
+        <li>Orden de etapas: <b>Fijación → Nitrificación → Asimilación → Amonificación → Desnitrificación</b>.</li>
+        <li>Fallas o desorden restan <b>1 vida</b>. Completa todas para ganar.</li>
+        <li>Entre etapas pueden aparecer <b>preguntas rápidas</b>. ¡Responde bien para sumar puntos!</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Modal de mensajes -->
+  <dialog id="modal">
+    <form method="dialog" class="modal-card">
+      <h3 id="modal-title">Título</h3>
+      <p id="modal-text">Contenido</p>
+      <div id="modal-quiz" class="quiz hidden"></div>
+      <menu class="modal-actions">
+        <button id="modal-close" class="btn primary">Continuar</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <footer class="footer">
+    Hecho para aprender el ciclo del nitrógeno — Usa <kbd>R</kbd> para reiniciar, <kbd>P</kbd> para pausar.
+  </footer>
+
+
+  <script src="index.js" type="module"></script>
+
+</body>
+</html>

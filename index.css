@@ -1,0 +1,115 @@
+:root{
+    --bg:#0e1726;
+    --panel:#111827;
+    --muted:#94a3b8;
+    --text:#e5e7eb;
+    --brand:#4EF5A7;   /* paleta del usuario */
+    --brand2:#4ED4F5;
+    --accent:#79F55E;
+    --danger:#ef4444;
+    --gold:#f59e0b;
+  }
+  
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial;
+    color:var(--text);
+    background: radial-gradient(1000px 600px at 20% -10%, #1e293b 0%, #0b1220 60%), var(--bg);
+  }
+  
+  .topbar{
+    display:flex;
+    gap:1rem;
+    align-items:center;
+    justify-content:space-between;
+    padding:0.75rem 1rem;
+    background:linear-gradient(90deg,var(--panel),#0f1b2e);
+    border-bottom:1px solid #1f2937;
+  }
+  .topbar h1{font-size:1.25rem; margin:0; letter-spacing:.5px}
+  
+  .hud{display:flex; gap:1rem; font-size:.95rem; color:var(--muted)}
+  .hud strong{color:var(--text)}
+  
+  .controls{display:flex; gap:.5rem}
+  .btn{
+    border:1px solid #334155;
+    background:#0f172a;
+    color:var(--text);
+    padding:.5rem .8rem;
+    border-radius:.6rem;
+    cursor:pointer;
+    transition:.2s;
+  }
+  .btn:hover{transform:translateY(-1px); border-color:#475569}
+  .btn.primary{background:linear-gradient(90deg,var(--brand),var(--brand2)); color:#0b1220; font-weight:700}
+  
+  main{max-width:1000px;margin:1rem auto;padding:0 1rem}
+  .legend{display:flex; gap:.5rem; margin:.5rem 0 1rem}
+  .badge{display:inline-block; padding:.25rem .5rem; border-radius:.5rem; font-size:.85rem; background:#0b1220; border:1px solid #23324a; color:#cbd5e1}
+  .badge.soil{border-color:#6b7280}
+  .badge.plant{border-color:#16a34a}
+  .badge.bacteria{border-color:#06b6d4}
+  .badge.cloud{border-color:#a78bfa}
+  
+  #game{
+    display:block;
+    width:100%;
+    border-radius:1rem;
+    background:
+      linear-gradient(180deg, rgba(78,245,223,.06), transparent 25%),
+      radial-gradient(800px 300px at 50% 0%, rgba(78,245,167,.15), transparent 60%),
+      #071222;
+    border:1px solid #21314a;
+    box-shadow:0 20px 50px rgba(0,0,0,.35), inset 0 0 60px rgba(78,245,223,.06);
+  }
+  
+  .help{margin:1rem 0 2rem}
+  .help h2{margin:.25rem 0 .5rem; font-size:1.05rem; color:#cbd5e1}
+  .help ul{margin:.25rem 0; padding-left:1.25rem; color:#9aa7b7}
+  .help kbd{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    background:#0b1220; border:1px solid #23324a; padding:.1rem .3rem; border-radius:.35rem; font-size:.85em; color:#cbd5e1
+  }
+  
+  .footer{
+    text-align:center;
+    color:#7e8ea3;
+    padding:1rem 0 2rem;
+    font-size:.9rem;
+  }
+  
+  dialog{
+    border:none;
+    padding:0;
+    background:transparent;
+  }
+  .modal-card{
+    width:min(680px,90vw);
+    margin:auto;
+    background:linear-gradient(180deg,#0b1220,#0a1626 60%, #0b1220);
+    border:1px solid #1f2e47;
+    border-radius:1rem;
+    padding:1rem 1.25rem;
+    color:var(--text);
+    box-shadow:0 25px 80px rgba(0,0,0,.5);
+  }
+  .modal-card h3{margin:.25rem 0 .25rem; font-size:1.25rem}
+  .modal-card p{color:#b8c4d5; line-height:1.4}
+  .modal-actions{display:flex; justify-content:flex-end; gap:.5rem; padding-top:.75rem}
+  .quiz.hidden{display:none}
+  .quiz{margin-top:.75rem; border-top:1px dashed #28415f; padding-top:.75rem}
+  .quiz h4{margin:.1rem 0 .35rem}
+  .quiz .option{
+    display:block;
+    border:1px solid #2a3d59;
+    background:#0c1a2e;
+    padding:.5rem .6rem; margin:.4rem 0;
+    border-radius:.6rem; cursor:pointer;
+  }
+  .quiz .option:hover{border-color:#476083}
+  .quiz .option.correct{border-color:var(--accent)}
+  .quiz .option.wrong{border-color:var(--danger)}
+  
